@@ -29,7 +29,8 @@ def PickingNews():
             noticia = second_soup.find('h1', class_='post-title').get_text() + '\n'
             noticia += PickNewsInPost(corpo_noticia.find_all('p'))
             with open('input.txt', 'w', encoding="utf-8") as file:
-                file.write(noticia)
+                text = noticia.encode('utf-8').decode('ascii', errors='ignore')
+                file.write(text)
 
 
 if __name__ == '__main__':
