@@ -17,30 +17,39 @@ class NoticiaListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by NoticiaParser#nomes.
-    def enterNomes(self, ctx:NoticiaParser.NomesContext):
+    # Enter a parse tree produced by NoticiaParser#article.
+    def enterArticle(self, ctx:NoticiaParser.ArticleContext):
         pass
 
-    # Exit a parse tree produced by NoticiaParser#nomes.
-    def exitNomes(self, ctx:NoticiaParser.NomesContext):
-        pass
-
-
-    # Enter a parse tree produced by NoticiaParser#numeros.
-    def enterNumeros(self, ctx:NoticiaParser.NumerosContext):
-        pass
-
-    # Exit a parse tree produced by NoticiaParser#numeros.
-    def exitNumeros(self, ctx:NoticiaParser.NumerosContext):
+    # Exit a parse tree produced by NoticiaParser#article.
+    def exitArticle(self, ctx:NoticiaParser.ArticleContext):
         pass
 
 
-    # Enter a parse tree produced by NoticiaParser#endereco.
-    def enterEndereco(self, ctx:NoticiaParser.EnderecoContext):
+    # Enter a parse tree produced by NoticiaParser#title_content.
+    def enterTitle_content(self, ctx:NoticiaParser.Title_contentContext):
         pass
 
-    # Exit a parse tree produced by NoticiaParser#endereco.
-    def exitEndereco(self, ctx:NoticiaParser.EnderecoContext):
+    # Exit a parse tree produced by NoticiaParser#title_content.
+    def exitTitle_content(self, ctx:NoticiaParser.Title_contentContext):
+        pass
+
+
+    # Enter a parse tree produced by NoticiaParser#title.
+    def enterTitle(self, ctx:NoticiaParser.TitleContext):
+        pass
+
+    # Exit a parse tree produced by NoticiaParser#title.
+    def exitTitle(self, ctx:NoticiaParser.TitleContext):
+        pass
+
+
+    # Enter a parse tree produced by NoticiaParser#body.
+    def enterBody(self, ctx:NoticiaParser.BodyContext):
+        pass
+
+    # Exit a parse tree produced by NoticiaParser#body.
+    def exitBody(self, ctx:NoticiaParser.BodyContext):
         pass
 
 

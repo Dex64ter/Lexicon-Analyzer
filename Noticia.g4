@@ -1,17 +1,19 @@
 grammar Noticia;
-ini: citacao |FONT | nomes | numeros ;
-nomes: (WOR (PONTUACAO)?);
-numeros: NUM (PONTUACAO (NUM)*)?;
-endereco: EMAIL;
-citacao: CIT;
+ini: NEWLINE article;
 
-FONT: 'Fonte:';
-WOR: [a-zãàáíêôâéóúçA-ZÇÃÂ];
-EMAIL: '[' WOR (('@')? WOR '.com')?']' | '[' WOR ']';
-CIT: '"' WOR '"';
-NUM: [0-9];
+article: title_content (NEWLINE NEWLINE)* body;
 
-INFO: '('WOR')';
+title_content: TITLE_TEXT;
 
-PONTUACAO: [.;,/];
-WS: [ \t\r\n] -> skip;
+title: TITLE_TEXT;
+
+// Lexer rules
+body: BODY_TEXT;
+
+// Lexer rules
+NEWLINE: '\r' | '\n';
+TITLE_TEXT: [À-ü0-9 ]+;
+// CONTENT_TEXT: ~[\r\n]+;
+BODY_TEXT: [À-ü0-9 ]+ NEWLINE?;
+
+// INFO: '(' [A-Za-z0-9]+ ')';

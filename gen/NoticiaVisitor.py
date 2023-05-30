@@ -14,18 +14,23 @@ class NoticiaVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by NoticiaParser#nomes.
-    def visitNomes(self, ctx:NoticiaParser.NomesContext):
+    # Visit a parse tree produced by NoticiaParser#article.
+    def visitArticle(self, ctx:NoticiaParser.ArticleContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by NoticiaParser#numeros.
-    def visitNumeros(self, ctx:NoticiaParser.NumerosContext):
+    # Visit a parse tree produced by NoticiaParser#title_content.
+    def visitTitle_content(self, ctx:NoticiaParser.Title_contentContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by NoticiaParser#endereco.
-    def visitEndereco(self, ctx:NoticiaParser.EnderecoContext):
+    # Visit a parse tree produced by NoticiaParser#title.
+    def visitTitle(self, ctx:NoticiaParser.TitleContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by NoticiaParser#body.
+    def visitBody(self, ctx:NoticiaParser.BodyContext):
         return self.visitChildren(ctx)
 
 
