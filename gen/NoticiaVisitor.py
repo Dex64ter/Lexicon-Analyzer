@@ -1,4 +1,4 @@
-# Generated from C:/Users/davij/PycharmProjects/ExemploAntlr\Noticia.g4 by ANTLR 4.12.0
+# Generated from C:/Users/ryant/OneDrive/Área de Trabalho/2023.1/COMPILADORES/LexiconAnalyzer\Noticia.g4 by ANTLR 4.12.0
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .NoticiaParser import NoticiaParser
@@ -24,13 +24,8 @@ class NoticiaVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by NoticiaParser#title.
-    def visitTitle(self, ctx:NoticiaParser.TitleContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by NoticiaParser#body.
-    def visitBody(self, ctx:NoticiaParser.BodyContext):
+    # Visit a parse tree produced by NoticiaParser#body_content.
+    def visitBody_content(self, ctx:NoticiaParser.Body_contentContext):
         return self.visitChildren(ctx)
 
 
