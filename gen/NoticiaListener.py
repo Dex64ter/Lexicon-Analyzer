@@ -35,21 +35,12 @@ class NoticiaListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by NoticiaParser#title.
-    def enterTitle(self, ctx:NoticiaParser.TitleContext):
+    # Enter a parse tree produced by NoticiaParser#body_content.
+    def enterBody_content(self, ctx:NoticiaParser.Body_contentContext):
         pass
 
-    # Exit a parse tree produced by NoticiaParser#title.
-    def exitTitle(self, ctx:NoticiaParser.TitleContext):
-        pass
-
-
-    # Enter a parse tree produced by NoticiaParser#body.
-    def enterBody(self, ctx:NoticiaParser.BodyContext):
-        pass
-
-    # Exit a parse tree produced by NoticiaParser#body.
-    def exitBody(self, ctx:NoticiaParser.BodyContext):
+    # Exit a parse tree produced by NoticiaParser#body_content.
+    def exitBody_content(self, ctx:NoticiaParser.Body_contentContext):
         pass
 
 

@@ -1,12 +1,7 @@
-import tkinter
-
 from antlr4 import *
 
 from gen.NoticiaLexer import NoticiaLexer
 from gen.NoticiaParser import NoticiaParser
-import requests
-from bs4 import BeautifulSoup
-
 
 import requests
 from bs4 import BeautifulSoup
@@ -35,7 +30,7 @@ def PickNewsInPage(link):
 
 def get_text():
     # Função chamada quando o botão é clicado
-    text = entry.get()  # Obtém o texto digitado no campo de entrada
+    text = inp.get()  # Obtém o texto digitado no campo de entrada
     print(text)
     return text
 
@@ -43,35 +38,38 @@ def antlr():
     dados = FileStream('input.txt', encoding='utf-8')
     #dados = InputStream("hello Raimundo, Santos, Moura.")
     lexer = NoticiaLexer(dados)
-    # for tok in lexer.getAllTokens():
-    #     print(tok.text, tok.type)
+    types = {  ## Retirado do arquivo Lexer
+        1: "P.R. (Palavra reservada)",
+        2: "Espaço ou parágrafo",
+    }
+    expr = ('{0:16} | {1:25}'.format("Token", "Tipo"))
+    expr += ('-' * 46)
+    expr += '\n'
+    for tok in lexer.getAllTokens():
+        expr += ('{0:16} | {1:28}'.format(tok.text, types[tok.type])) + '\n'
     lexer.reset()
     stream = CommonTokenStream(lexer)
     parser = NoticiaParser(stream)
     tree = parser.ini()
     print(tree.toStringTree())
-    return tree.toStringTree()
+    return (expr + "Parser Tree:\n" + tree.toStringTree())
 
 def buttonPressed():
     PickNewsInPage(get_text())
-    tx = Text(janela, width=60)
-    # texto_resposta = Label(janela, text=antlr())
-    # texto_resposta.grid(column=0, row=2, padx=10, pady=10)
+    janela.geometry("500x500")
+    tx = Text(janela, wrap="word")
     tx.insert(END, antlr())
-    tx.grid(column=0, row=2, padx=10, pady=10)
+    tx.pack(fill=BOTH)
 
 if __name__ == '__main__':
-    # PickNewsInPage()
     janela = Tk()
-    janela.geometry('500x500')
+    janela.geometry("500x100")
     janela.title("Analisador léxico de notícias")
-    texto = Label(janela, text="Coloque aqui o link da notícia desejada no site https://cidadeverde.com/")
-    texto.grid(column=0, row=0, padx=10, pady=10)
+    tit = Label(janela, text="Link da notícia do site https://cidadeverde.com/")
+    inp = Entry()
+    but = Button(janela, text="Enviar", width=25,height=1,command=buttonPressed)
 
-    entry = Entry(janela)  # Cria um campo de entrada de texto
-    entry.grid(column=0, row=1, padx=10, pady=10)  # Posiciona o campo de entrada na janela
-
-    button = Button(janela, text="Enviar", command=buttonPressed)  # Cria um botão
-    button.grid(column=1, row=1, padx=10, pady=10)  # Posiciona o botão na janela
-
+    tit.pack(fill=BOTH)
+    inp.pack(fill=BOTH)
+    but.pack()
     janela.mainloop()

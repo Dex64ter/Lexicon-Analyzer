@@ -1,19 +1,13 @@
 grammar Noticia;
-ini: NEWLINE article;
+ini: article;
 
-article: title_content (NEWLINE NEWLINE)* body;
+article: title_content  body_content;
 
-title_content: TITLE_TEXT;
+title_content: WORD ( ' ' WORD )*;
 
-title: TITLE_TEXT;
-
-// Lexer rules
-body: BODY_TEXT;
+body_content: (WORD ( ' ' WORD )*)*;
 
 // Lexer rules
-NEWLINE: '\r' | '\n';
-TITLE_TEXT: [À-ü0-9 ]+;
-// CONTENT_TEXT: ~[\r\n]+;
-BODY_TEXT: [À-ü0-9 ]+ NEWLINE?;
 
-// INFO: '(' [A-Za-z0-9]+ ')';
+WORD: '[' | ']' | ' '| '"' | '$' | '”' | '“' | [A-ZÂÃÀÁÉÊÍÎÔÓÛÚÇa-zâãàáéêíîóõôüúûç0-9,.:;(){}/-]+;
+WS: [\n\t\r]+ -> skip;

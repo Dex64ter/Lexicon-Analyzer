@@ -24,13 +24,8 @@ class NoticiaVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by NoticiaParser#title.
-    def visitTitle(self, ctx:NoticiaParser.TitleContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by NoticiaParser#body.
-    def visitBody(self, ctx:NoticiaParser.BodyContext):
+    # Visit a parse tree produced by NoticiaParser#body_content.
+    def visitBody_content(self, ctx:NoticiaParser.Body_contentContext):
         return self.visitChildren(ctx)
 
 
