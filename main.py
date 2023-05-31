@@ -42,7 +42,7 @@ def antlr():
         1: "P.R. (Palavra reservada)",
         2: "Espaço ou parágrafo",
     }
-    expr = ('{0:16} | {1:25}'.format("Token", "Tipo"))
+    expr = ('{0:16} | {1:25}'.format("Token", "Tipo")) + "\n"
     expr += ('-' * 46)
     expr += '\n'
     for tok in lexer.getAllTokens():
